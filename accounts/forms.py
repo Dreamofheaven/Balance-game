@@ -27,9 +27,9 @@ class CustomUserChangeForm(UserChangeForm):
 
     email = forms.EmailField(label='이메일', label_suffix='', widget=forms.EmailInput(
         attrs={'class': 'form-control', 'style': 'width: 250px;'}))
-    password = None 
-    
-    
+    password = None
+
+
 class LoginForm(AuthenticationForm):
     username = forms.CharField(
         label="아이디",
