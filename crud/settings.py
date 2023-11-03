@@ -32,6 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'dreamofheaven.github.io/Balance-game']
 
 
+
 # Application definition
 
 INSTALLED_APPS = [

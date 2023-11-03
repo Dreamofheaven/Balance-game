@@ -62,11 +62,11 @@ def detail(request, post_pk):
 def delete(request, post_pk):
     post = Post.objects.get(pk=post_pk)
     if request.user == post.user:
-        if post.image1:  
+        if post.image1:
             image1_path = os.path.join(settings.MEDIA_ROOT, str(post.image1))
             if os.path.isfile(image1_path):
                 os.remove(image1_path)
-        if post.image2:  
+        if post.image2:
             image2_path = os.path.join(settings.MEDIA_ROOT, str(post.image2))
             if os.path.isfile(image2_path):
                 os.remove(image2_path)
@@ -78,7 +78,7 @@ def delete(request, post_pk):
 def update(request, post_pk):
     post = Post.objects.get(pk=post_pk)
     if request.user != post.user:
-        return redirect('posts:index')  
+        return redirect('posts:index')
 
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES, instance=post)
@@ -87,7 +87,7 @@ def update(request, post_pk):
             image1_path = os.path.join(settings.MEDIA_ROOT, str(post.image1))
             if os.path.isfile(image1_path):
                 os.remove(image1_path)
-        if request.FILES.get('image2', None) != None: 
+        if request.FILES.get('image2', None) != None:
             image2_path = os.path.join(settings.MEDIA_ROOT, str(post.image2))
             if os.path.isfile(image2_path):
                 os.remove(image2_path)
